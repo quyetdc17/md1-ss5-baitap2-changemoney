@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ss5 bai tap 2</title>
+    <style>
+        form {
+            margin: 0 100px;
+        }
+
+        button {
+            background-color: #8981bb;
+            height: 20px;
+            padding: 0 10px;
+            text-align: center;
+            color: white;
+            border: 0px;
+            border-radius: 3px;
+        }
+
+        select {
+            width: 60%;
+            margin: 0 50px;
+            height: 25px;
+        }
+
+        input {
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+        </tr>
+        <tr>
+            <th><input type="text" id="amount" name="amount"></th>
+            <th>
+                <select id="fromCurrency">
+                    <option>Choose curren</option>
+                    <option>VietNam</option>
+                    <option>USA</option>
+                </select>
+            </th>
+            <th>
+                <select id="toCurrency">
+                    <option>Choose curren</option>
+                    <option>USA</option>
+                    <option>VietNam</option>
+                </select>
+            </th>
+            <th>
+                <button type="button" onclick="Convert();">Convert</button>
+            </th>
+        </tr>
+    </table>
+    <p style="color: blue">Result: <span id="result"></span></p>
+</form>
+<script>
+    function Convert() {
+        let convert;
+        let inputAmount = document.getElementById("amount").value;
+        let amount = +inputAmount;
+        let fromCurrency = document.getElementById("fromCurrency").value;
+
+        let toCurrency = document.getElementById("toCurrency").value;
+        if (fromCurrency === 'VietNam' && toCurrency === 'USA') {
+            convert = amount * 0.000042;
+            document.getElementById('result').innerHTML = convert + ' USD';
+        } else if (fromCurrency === 'USA' && toCurrency === 'VietNam') {
+            convert = amount * 23710;
+            document.getElementById('result').innerHTML = convert + ' VND';
+        }
+    }
+</script>
+</body>
+</html>
